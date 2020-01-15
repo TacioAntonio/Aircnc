@@ -15,7 +15,7 @@ const io = socketio(server);
 mongoose.connect('mongodb+srv://<username>:<password>@...', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
+});
 
 const connectedUsers = {};
 
@@ -30,13 +30,7 @@ app.use((req, res, next) => {
   req.connectedUsers = connectedUsers;
 
   return next();
-})
-
-// GET, POST, PUT, DELETE
-
-// req.query = Acessar query params (para filtros)
-// req.params = Acessar route params (para edição, delete)
-// req.body = Acessar corpo da requisição (para criação, edição)
+});
 
 app.use(cors());
 app.use(express.json());
